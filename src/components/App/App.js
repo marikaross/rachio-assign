@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Form from '../Form/Form.js';
 import ZoneContainer from '../ZoneContainer/ZoneContainer.js';
 import id from '../key.js';
+import { cleanZones } from '../helper.js';
 require('./App.css');
 
 

@@ -37,6 +37,7 @@ class Form extends Component {
           placeholder='enter time in minutes'
         />
         <button>Submit</button>
+      </form>
 
       )
   }

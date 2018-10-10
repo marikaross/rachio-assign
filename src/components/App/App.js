@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+require('./App.css');
 
 
 class App extends Component {

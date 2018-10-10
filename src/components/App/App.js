@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Form from '../Form/Form.js';
 import ZoneContainer from '../ZoneContainer/ZoneContainer.js';
-import id from '../key.js';
+import { id, key } from '../../key.js';
 import { cleanZones } from '../helper.js';
 require('./App.css');
 
@@ -15,17 +15,23 @@ class App extends Component {
     }
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     // const url = `https://api.rach.io/1/public/person/${id}`
-    await this.fetchZoneInfo()
+    this.fetchZoneInfo()
   }
 
-  async fetchZoneInfo() {
+  fetchZoneInfo() {
     const url = `https://api.rach.io/1/public/person/${id}`
-    const response = await fetch(url)
-    const result = response.json()
-    const cleanedZones = cleanZones(result)
-    this.setState({zones: [...cleanedZones]})
+    fetch(url, {
+      method: 'GET',
+      headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${key}`
+      }
+    })
+      .then(response => response.json())
+      .then(result => cleanZones(result))
+      .then(result => this.setState({zones: [...result]}))
   }
 
   render() {

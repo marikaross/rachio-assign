@@ -11,6 +11,11 @@ const ZoneContainer = ({zones}) => {
 
   return (
     <div>
+      <header className='container-header'>
+        <h3>Zone</h3>
+        <h3>Start Time</h3>
+        <h3>Duration</h3>
+      </header>
       {zoneCards}
     </div>
     )
